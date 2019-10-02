@@ -120,10 +120,11 @@ __What are subqueries? When are they okay to use?__ - A subquery is a query with
 
 __What are blocks?__ - Column data is persisted to 1 MB immutable blocks. When factoring in compression, there can be 1 million values in a single block.
 
+__What is a Redshift Sort Key?__ - [Redshift Sort Key determines the order in which rows in a table are stored. Query performance is improved when Sort keys are properly used as it enables query optimizer to read fewer chunks of data filtering out the majority of it.](https://hevodata.com/blog/redshift-sort-keys-choosing-best-sort-style/)
 
 # References
 
-### References used in this repo
+### References - Used in this repo
 
 - Youtube: [Amazon Redshift Tutorial | AWS Tutorial for Beginners | AWS Certification Training | Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8) - good beginner tutorial.
 
