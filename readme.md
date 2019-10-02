@@ -3,8 +3,8 @@
 </p>
 
 - [Tutorial by Edureka](#tutorial-by-edureka)
+- [More Notes](#more-notes)
 - [References](#references)
-
 
 
 # [Tutorial by Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8)
@@ -83,12 +83,51 @@ delimiter '|' region 'us-west-2';
 
 [How see previous queries you've performed?](https://youtu.be/fc5WPKnbam8?t=1981) - In AWS Console, go to your Redshift cluster and click the _Queries_ tab.
 
-### References
 
-#### References used in this repo
+# More Notes
 
-[Amazon Redshift Tutorial | AWS Tutorial for Beginners | AWS Certification Training | Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8) - good beginner tutorial.
+__How much data should you have for Redshift to be a good idea?__ - 100 GB or more. Otherwise, use MySQL.
 
-#### References - Deprecated
+__Is Redshift good for BLOB data?__ - No. Use s3 instead.
 
-- [Deep Dive on Amazon Redshift - AWS Online Tech Talks](https://www.youtube.com/watch?v=Hur-p3kGDTA) - too advanced.
+__How is backup/restore achieved?__ The _compute nodes_ asynchronously backup to s3 (currently this is every 5 GB of changed data, or 8 hours)
+
+__What is the primary goal when distributing data across nodes?__ - to distribute the data evenly. This maximizes parallel processing.
+
+__What are the distribution styles: DISTKEY, ALL, EVEN?__
+
+1. DISTKEY - hashes a key to distribute data.
+1. ALL - puts a copy of the table on every node.
+1. EVEN - splits a table evenly across 2+ nodes
+
+__What's the best distribution style (DISTKEY, ALL, EVEN) for small tables?__ - ALL. For scenarios where a big table is being joined with a small table, it's beneficial that the small table exists on the same node, so no data transfer happens between nodes.
+
+__If JOINs are being performed often on a column (that has distinct values), how should you distribute data?__ - DISTKEY will evenly distribute the data across nodes. In addition, since JOINs are being performed often on a certain column, using that column as the key will spread out that column's data evenly across nodes.
+
+__What if you have a huge table, and Column1 and Column2 are each accessed 50% of the time? How can you do distribution?__ - Create 2 of this table, one with a DISTKEY for Column1, and one with a DISTKEY for Column2.
+
+__When do you use the EVEN distribution style?__ - when you have no insights into the data, or which columns are accessed frequently, you can just distribute the data evenly across the nodes.
+
+__Does Redshift enforce primary key or foreign keys?__ - No, but defining them can speed up queries.
+
+__What's a good way to copy data into redshift, using files?__ - Instead of using 1 big file, split the data into multiple files and use 1 COPY command to copy data from multiple files. Each slice in a node will process 1 file, so if you have 960 slices, use 960 files.
+
+__What is _vacuuming_?__ - When you perform a delete, rows are marked for deletion, but not removed. Redshift automatically runs a [VACUUM DELETE](https://docs.aws.amazon.com/en_pv/redshift/latest/dg/t_Reclaiming_storage_space202.html) operation (during periods of reduced load) to actually delete this rows.
+
+__Instead of deleting old data, what's a better idea?__ - Deleting data causes _vacuuming_, which is slow (could take hours). Instead, split the data into tables by time (such as month). You can delete old data by simply using `DROP TABLE` on the table.
+
+__What are subqueries? When are they okay to use?__ - A subquery is a query within a query. Use subqueries in cases where one table in the query is used only for predicate conditions. A subquery in a query results in nested loops, so only use it when a subquery returns a small number of rows (like less than 200).
+
+__What are blocks?__ - Column data is persisted to 1 MB immutable blocks. When factoring in compression, there can be 1 million values in a single block.
+
+
+# References
+
+### References used in this repo
+
+- Youtube: [Amazon Redshift Tutorial | AWS Tutorial for Beginners | AWS Certification Training | Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8) - good beginner tutorial.
+
+### References - Deprecated
+
+- [Deep Dive on Amazon Redshift - AWS Online Tech Talks](https://www.youtube.com/watch?v=Hur-p3kGDTA) - advanced, high-level tutorial for users who already know Redshift. Mediocre.
+- A Cloud Guru: [Hands on with AWS Redshift: Table Design](https://learn.acloud.guru/course/aws-redshift-table-design/dashboard) - assumes AWS Knowledge (Security Groups, VPC, etc.). Everything starting from "Load data and run sql queries" was not well explained. Very confusing tutorial.
