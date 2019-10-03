@@ -2,10 +2,6 @@
     <img src="images/redshift_logo.png">
 </p>
 
-- [Tutorial by Edureka](#tutorial-by-edureka)
-- [More Notes](#more-notes)
-- [References](#references)
-
 
 # [Tutorial by Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8)
 
