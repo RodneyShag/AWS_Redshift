@@ -126,5 +126,5 @@ __What is a Redshift Sort Key?__ - [Redshift Sort Key determines the order in wh
 
 ### References - Deprecated
 
-- [Deep Dive on Amazon Redshift - AWS Online Tech Talks](https://www.youtube.com/watch?v=Hur-p3kGDTA) - advanced, high-level tutorial for users who already know Redshift. Mediocre.
+- YouTube: [Deep Dive on Amazon Redshift - AWS Online Tech Talks](https://www.youtube.com/watch?v=Hur-p3kGDTA) - advanced, high-level tutorial for users who already know Redshift. Mediocre.
 - A Cloud Guru: [Hands on with AWS Redshift: Table Design](https://learn.acloud.guru/course/aws-redshift-table-design/dashboard) - assumes AWS Knowledge (Security Groups, VPC, etc.). Everything starting from "Load data and run sql queries" was not well explained. Very confusing tutorial.
