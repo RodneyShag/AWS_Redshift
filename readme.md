@@ -3,6 +3,13 @@
 </p>
 
 
+# Intended Learning Strategy
+
+This repo is a concise summary and replacement of the [Amazon Redshift by Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8) tutorial.
+
+Read this repo linearly from top to bottom. Although this repo provides hyperlinks to the above tutorial, you do not need to click through the hyperlinks to learn Redshift. They're provided just in case you need more information about a topic.
+
+
 # [Tutorial by Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8)
 
 [What is a data warehouse?](https://youtu.be/fc5WPKnbam8?t=75) - a repository where data generated from your organization
