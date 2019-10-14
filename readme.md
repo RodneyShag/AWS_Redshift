@@ -3,11 +3,7 @@
 </p>
 
 
-# Intended Learning Strategy
-
-This repo is a concise summary and replacement of the [Amazon Redshift by Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8) tutorial.
-
-Read this repo linearly from top to bottom. Although this repo provides hyperlinks to the above tutorial, you do not need to click through the hyperlinks to learn Redshift. They're provided just in case you need more information about a topic.
+This repo is a concise summary and _replacement_ of the [Amazon Redshift by Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8) tutorial. Using the hyperlinks below is optional.
 
 
 # [Tutorial by Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8)
