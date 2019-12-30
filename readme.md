@@ -8,8 +8,7 @@ This repo is a concise summary and _replacement_ of the [Amazon Redshift by Edur
 
 # [Tutorial by Edureka](https://www.youtube.com/watch?v=fc5WPKnbam8)
 
-[What is a data warehouse?](https://youtu.be/fc5WPKnbam8?t=75) - a repository where data generated from your organization
-s operational systems is collected, transformed, and stored.
+[What is a data warehouse?](https://youtu.be/fc5WPKnbam8?t=75) - a repository where data generated from your organization's operational systems is collected, transformed, and stored.
 
 [What is Redshift?](https://youtu.be/fc5WPKnbam8?t=349) - a parallel, column-oriented database for analyzing data in your data warehouse.
 
